@@ -7,6 +7,7 @@ public class PlayerController : MonoBehaviour
 {
 
     public float speed;
+    public float rotationSpeed;
     public Text countText;
     public Text winText;
 
@@ -24,8 +25,11 @@ public class PlayerController : MonoBehaviour
     }
      void Update()
     {
-        Vector2 moveInput = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
-        moveVelocity = moveInput.normalized * speed;
+        float rotateInput = Input.GetAxisRaw("Horizontal");
+        transform.Rotate(0, 0, - rotateInput * rotationSpeed);
+
+        Vector2 moveInput = Vector2.up * Input.GetAxisRaw("Vertical");
+        moveVelocity = speed * ( transform.rotation * moveInput);
     }
 
     private void FixedUpdate()
