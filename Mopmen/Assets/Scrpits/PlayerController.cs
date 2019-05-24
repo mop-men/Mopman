@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-
+using UnityEngine.SceneManagement;
 public class PlayerController : MonoBehaviour
 {
 
@@ -54,8 +54,17 @@ public class PlayerController : MonoBehaviour
     void SetCountText()
     {
         countText.text = "Count: " + count.ToString();
-        if(count>= 12)
+        if(count>= 27)
         {
+            {
+                SceneManager.LoadScene("Win_screen");
+            }
+
+        if (Health <= 0)
+        {
+                SceneManager.LoadScene("lose_screen");
+        }
+
             winText.text = "You Win";
         }
     }
