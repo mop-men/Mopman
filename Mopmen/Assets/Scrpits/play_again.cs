@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class playagain : MonoBehaviour
+public class play_again : MonoBehaviour
 {
     // Use this for initialization
     void Start()
@@ -12,10 +12,8 @@ public class playagain : MonoBehaviour
     }
 
 // Detects if any key has been pressed down.
-    void Update()
+  public void play_again_button()
     {
-        {
         SceneManager.LoadScene("Main");
-        }
     }
 }
