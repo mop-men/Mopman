@@ -83,7 +83,7 @@ public class PlayerController : MonoBehaviour
         countText.text = "Rubbish Cleaned: " + count.ToString();
         if(count>= 27)
         {
-            SceneManager.LoadScene("win_screen");
+            SceneManager.LoadScene("Win_screen");
         }
     }
 }
