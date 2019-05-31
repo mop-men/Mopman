@@ -30,12 +30,12 @@ public class PlayerController : MonoBehaviour
 
 
     }
-    
+
 
 void Update()
     {
         float rotateInput = Input.GetAxisRaw("Horizontal");
-        transform.Rotate(0, 0, - rotateInput * rotationSpeed);
+        transform.Rotate(0, 0, -rotateInput * rotationSpeed);
 
         Vector2 moveInput = Vector2.up * Input.GetAxisRaw("Vertical");
         moveVelocity = speed * ( transform.rotation * moveInput);
@@ -44,7 +44,7 @@ void Update()
     private void FixedUpdate()
     {
         rb2d.MovePosition(rb2d.position + moveVelocity * Time.deltaTime);
-            
+
     }
 
     void OnTriggerEnter2D(Collider2D other)
@@ -77,8 +77,8 @@ void Update()
     }
     void SetCountText()
     {
-        countText.text = "Count: " + count.ToString();
-        if(count>= 12)
+        countText.text = "Rubbish Cleaned: " + count.ToString();
+        if(count>= 27)
         {
             winText.text = "You Win";
         }
