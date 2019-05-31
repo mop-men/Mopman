@@ -10,7 +10,6 @@ TextureImporter:
     21300010: sprsheet_5
     21300012: sprsheet_6
     21300014: sprsheet_7
-    21300016: sprsheet_8
   externalObjects: {}
   serializedVersion: 6
   mipmaps:
@@ -269,30 +268,10 @@ TextureImporter:
       name: sprsheet_7
       rect:
         serializedVersion: 2
-        x: 2
+        x: 6
         y: 82
-        width: 93
-        height: 21
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 1edb515a94fae5e41a21becc87646835
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: sprsheet_8
-      rect:
-        serializedVersion: 2
-        x: 99
-        y: 128
-        width: 71
-        height: 33
+        width: 83
+        height: 20
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -300,7 +279,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c0974f85a9130ea4d978f6957adebe62
+      spriteID: 69cdeb177982fce4d90cf6d9b7eac4a8
       vertices: []
       indices: 
       edges: []

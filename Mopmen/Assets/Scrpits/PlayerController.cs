@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.SceneManagement;
+
 public class PlayerController : MonoBehaviour
 {
 
@@ -10,8 +10,9 @@ public class PlayerController : MonoBehaviour
     public float rotationSpeed;
     public Text countText;
     public Text winText;
+
     public Text HealthText;
-    public Text loseText;
+    public Text LoseText;
 
     private Vector2 moveVelocity;
     private Rigidbody2D rb2d;
@@ -27,18 +28,16 @@ public class PlayerController : MonoBehaviour
         SetCountText();
         Health = 3;
         SetHealthText();
-
-
     }
 
 
-void Update()
+    void Update()
     {
         float rotateInput = Input.GetAxisRaw("Horizontal");
         transform.Rotate(0, 0, -rotateInput * rotationSpeed);
 
         Vector2 moveInput = Vector2.up * Input.GetAxisRaw("Vertical");
-        moveVelocity = speed * ( transform.rotation * moveInput);
+        moveVelocity = speed * (transform.rotation * moveInput);
     }
 
     private void FixedUpdate()
@@ -56,33 +55,34 @@ void Update()
             SetCountText();
         }
 
-        if (other.gameObject.CompareTag("Damage"))
+       
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.collider.gameObject.CompareTag("Damage"))
         {
-            other.gameObject.SetActive(false);
+
             Health = Health - 1;
             SetHealthText();
         }
-
-
     }
-
 
     void SetHealthText()
     {
-        HealthText.text = "Health: " + Health.ToString();
-        if(Health<=0)
+        HealthText.text = "health:" + Health.ToString();
+        if (Health <= 0)
         {
-                SceneManager.LoadScene("lose_screen");
+            LoseText.text = "You Have Lost";
         }
     }
+       
     void SetCountText()
     {
-        countText.text = "Count: " + count.ToString();
+        countText.text = "Rubbish Cleaned: " + count.ToString();
         if(count>= 27)
         {
-                SceneManager.LoadScene("Win_screen");
+            winText.text = "You Win";
         }
-
-
     }
 }
