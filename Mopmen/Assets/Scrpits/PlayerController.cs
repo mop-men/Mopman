@@ -10,10 +10,13 @@ public class PlayerController : MonoBehaviour
     public float rotationSpeed;
     public Text countText;
     public Text winText;
+    public Text HealthText;
+    public Text loseText;
 
     private Vector2 moveVelocity;
     private Rigidbody2D rb2d;
     private int count;
+    private int Health;
 
 
     void Start()
@@ -22,8 +25,14 @@ public class PlayerController : MonoBehaviour
         count = 0;
         winText.text = "";
         SetCountText();
+        Health = 3;
+        SetHealthText();
+
+
     }
-     void Update()
+    
+
+void Update()
     {
         float rotateInput = Input.GetAxisRaw("Horizontal");
         transform.Rotate(0, 0, - rotateInput * rotationSpeed);
@@ -47,10 +56,25 @@ public class PlayerController : MonoBehaviour
             SetCountText();
         }
 
+        if (other.gameObject.CompareTag("Damage"))
+        {
+            other.gameObject.SetActive(false);
+            Health = Health - 1;
+            SetHealthText();
+        }
+
 
     }
 
 
+    void SetHealthText()
+    {
+        HealthText.text = "Health: " + Health.ToString();
+        if(Health<=0)
+        {
+            loseText.text = "You Have Lost";
+        }
+    }
     void SetCountText()
     {
         countText.text = "Count: " + count.ToString();
