@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
@@ -73,7 +74,7 @@ public class PlayerController : MonoBehaviour
         HealthText.text = "health:" + Health.ToString();
         if (Health <= 0)
         {
-            LoseText.text = "You Have Lost";
+            SceneManager.LoadScene("lose_screen");
         }
     }
        
@@ -82,7 +83,7 @@ public class PlayerController : MonoBehaviour
         countText.text = "Rubbish Cleaned: " + count.ToString();
         if(count>= 27)
         {
-            winText.text = "You Win";
+            SceneManager.LoadScene("win_screen");
         }
     }
 }
